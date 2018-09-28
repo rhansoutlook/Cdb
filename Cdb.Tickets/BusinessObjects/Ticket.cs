@@ -175,6 +175,14 @@ namespace Cdb.Tickets.BusinessObjects
         #endregion
 
         #region OneToMany
+        [Association("Ticket-Comments")]
+        public XPCollection<Comment> Comments
+        {
+            get
+            {
+                return GetCollection<Comment>("Comments");
+            }
+        }
 
 
 
