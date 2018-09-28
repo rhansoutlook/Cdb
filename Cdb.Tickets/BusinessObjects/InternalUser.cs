@@ -42,20 +42,28 @@ namespace Cdb.Tickets.BusinessObjects
         }
 
         #region OneToMany
-        [Association("InternalUser-Tickets")]
-        public XPCollection<InternalUser> AssignedToTickets
+        [Association("InternalUser-TicketsAssignedTo")]
+        public XPCollection<Ticket> AssignedToTickets
         {
             get
             {
-                return GetCollection<InternalUser>("AssignedToTickets");
+                return GetCollection<Ticket>("AssignedToTickets");
             }
         }
-        [Association("InternalUser-Tickets")]
-        public XPCollection<InternalUser> RaisedByTickets
+        [Association("InternalUser-TicketsRaisedBy")]
+        public XPCollection<Ticket> RaisedByTickets
         {
             get
             {
-                return GetCollection<InternalUser>("RaisedByTickets");
+                return GetCollection<Ticket>("RaisedByTickets");
+            }
+        }
+        [Association("InternalUser-Comments")]
+        public XPCollection<Comment> Comments
+        {
+            get
+            {
+                return GetCollection<Comment>("Comments");
             }
         }
         #endregion

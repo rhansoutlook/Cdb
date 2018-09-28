@@ -148,7 +148,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("TicketTypeId", ref ticketTypeId, value);
             }
         }
-        [Association("InternalUser-Tickets"),ImmediatePostData]
+        [Association("InternalUser-TicketsRaisedBy"),ImmediatePostData]
         public InternalUser RaisedBy
         {
             get
@@ -160,7 +160,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("RaisedBy", ref raisedBy, value);
             }
         }
-        [Association("InternalUser-Tickets"), ImmediatePostData]
+        [Association("InternalUser-TicketsAssignedTo"), ImmediatePostData]
         public InternalUser AssignedTo
         {
             get
