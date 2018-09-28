@@ -43,6 +43,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cdb.Notifications">
+      <HintPath>..\Cdb.Notifications\bin\Debug\Cdb.Notifications.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.ExpressApp.Objects.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -133,6 +136,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Welcome.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cdb.Tickets\Cdb.Tickets.csproj">
+      <Project>{31d07cec-61a1-4b5e-ac48-b7ab2cca96d7}</Project>
+      <Name>Cdb.Tickets</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
