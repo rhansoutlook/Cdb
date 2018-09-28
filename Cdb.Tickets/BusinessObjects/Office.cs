@@ -25,6 +25,27 @@ namespace Cdb.Tickets.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+        }     
+
+        public string BranchName
+        {
+            get { return branchName; }
+            set
+            {
+                SetPropertyValue("BranchName", ref branchName, value);
+            }
         }
+
+        [Association("Office-Tickets")]
+        public XPCollection<Ticket> Tickets
+        {
+            get
+            {
+                return GetCollection<Ticket>("Tickets");
+            }
+        }
+
+
+
     }
 }

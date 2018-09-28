@@ -33,6 +33,7 @@ namespace Cdb.Tickets.BusinessObjects
         private InternalUser raisedBy;
         private InternalUser assignedTo;
         private Client clientId;
+        private Office officeId;
 
         #endregion
         public Ticket(Session session)
@@ -198,6 +199,19 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("ClientId", ref clientId, value);
             }
         }
+        [Association("Office-Tickets"), ImmediatePostData]
+        public Office OfficeId
+        {
+            get
+            {
+                return officeId;
+            }
+            set
+            {
+                SetPropertyValue("OfficeId", ref officeId, value);
+            }
+        }
+
         #endregion
 
         #region OneToMany
@@ -217,7 +231,6 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<TicketResponse>("TicketResponses");
             }
         }
-
 
 
         #endregion
