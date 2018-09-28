@@ -15,10 +15,11 @@ using DevExpress.Persistent.Validation;
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class TicketType : BaseObject
-    { 
+    public class TicketSource : BaseObject
+    {
         private string description;
-        public TicketType(Session session)
+
+        public TicketSource(Session session)
             : base(session)
         {
         }
@@ -39,7 +40,7 @@ namespace Cdb.Tickets.BusinessObjects
             }
         }
 
-        [Association("TicketType-Tickets")]
+        [Association("TicketSource-Tickets")]
         public XPCollection<Ticket> Tickets
         {
             get
@@ -47,6 +48,9 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<Ticket>("Tickets");
             }
         }
+
+
+
 
     }
 }

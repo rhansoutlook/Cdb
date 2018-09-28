@@ -27,6 +27,7 @@ namespace Cdb.Tickets.BusinessObjects
         private string followUp;
         private Priority priority;
 
+        private TicketSource ticketSourceId;
         private TicketState ticketStateId;
         private TicketType ticketTypeId;
         private InternalUser raisedBy;
@@ -124,6 +125,18 @@ namespace Cdb.Tickets.BusinessObjects
         #endregion    }
 
         #region Foreign Keys
+        [Association("TicketSource-Tickets"), ImmediatePostData]
+        public TicketSource TicketSourceId
+        {
+            get
+            {
+                return ticketSourceId;
+            }
+            set
+            {
+                SetPropertyValue("TicketSourceId", ref ticketSourceId, value);
+            }
+        }
         [Association("TicketState-Tickets") , ImmediatePostData]
         public TicketState TicketStateId
         {

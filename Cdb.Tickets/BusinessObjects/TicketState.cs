@@ -16,8 +16,8 @@ namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
     public class TicketState : BaseObject
-    { 
-        // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+    {
+        private string description;
         public TicketState(Session session)
             : base(session)
         {
@@ -26,6 +26,18 @@ namespace Cdb.Tickets.BusinessObjects
 
         {
             base.AfterConstruction();
+        }
+
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                SetPropertyValue("Description", ref description, value);
+            }
         }
 
         [Association("TicketState-Tickets")]

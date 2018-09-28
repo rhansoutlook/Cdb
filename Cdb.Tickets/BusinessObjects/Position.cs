@@ -15,38 +15,16 @@ using DevExpress.Persistent.Validation;
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class TicketType : BaseObject
+    public class Position : BaseObject
     { 
-        private string description;
-        public TicketType(Session session)
+        public Position(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
             base.AfterConstruction();
+            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
-
-        public string Description
-        {
-            get
-            {
-                return description;
-            }
-            set
-            {
-                SetPropertyValue("Description", ref description, value);
-            }
-        }
-
-        [Association("TicketType-Tickets")]
-        public XPCollection<Ticket> Tickets
-        {
-            get
-            {
-                return GetCollection<Ticket>("Tickets");
-            }
-        }
-
     }
 }

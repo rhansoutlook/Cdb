@@ -85,9 +85,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\Client.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\InternalUser.cs" />
+    <Compile Include="BusinessObjects\Position.cs" />
     <Compile Include="BusinessObjects\Ticket.cs" />
+    <Compile Include="BusinessObjects\TicketResponse.cs" />
+    <Compile Include="BusinessObjects\TicketSource.cs" />
     <Compile Include="BusinessObjects\TicketState.cs" />
     <Compile Include="BusinessObjects\TicketType.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
