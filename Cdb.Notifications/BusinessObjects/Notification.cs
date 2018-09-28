@@ -20,6 +20,7 @@ namespace Cdb.Notifications.BusinessObjects
         private string notificationText;
         private string notificationEmail;
         private DateTime notificationDate;
+        private EventType eventTypeId;
 
         public Notification(Session session)
             : base(session)
@@ -63,6 +64,21 @@ namespace Cdb.Notifications.BusinessObjects
                 SetPropertyValue("NotificationDate", ref notificationDate, value);
             }
         }
+        
+        #region Foreign Keys
+        [Association("EventType-Notifications"), ImmediatePostData]
+        public EventType EventTypeId
+        {
+            get
+            {
+                return eventTypeId;
+            }
+            set
+            {
+                SetPropertyValue("EventTypeId", ref eventTypeId, value);
+            }
+        }
+        #endregion
 
 
     }

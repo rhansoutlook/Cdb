@@ -88,7 +88,7 @@
     <Compile Include="BusinessObjects\Client.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\InternalUser.cs" />
-    <Compile Include="BusinessObjects\Ofice.cs" />
+    <Compile Include="BusinessObjects\Office.cs" />
     <Compile Include="BusinessObjects\Position.cs" />
     <Compile Include="BusinessObjects\Ticket.cs" />
     <Compile Include="BusinessObjects\TicketResponse.cs" />
