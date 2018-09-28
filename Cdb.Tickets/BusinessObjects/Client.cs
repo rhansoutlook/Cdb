@@ -15,16 +15,40 @@ using DevExpress.Persistent.Validation;
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Client : BaseObject
-    { 
+    public class Client : Person
+    {
+        private string organizationName;
         public Client(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
-            base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
+            base.AfterConstruction();            
         }
+
+        public string OrganizationName
+        {
+            get
+            {
+                return organizationName;
+            }
+            set
+            {
+                SetPropertyValue("OrganizationName", ref organizationName, value);
+            }
+        }
+
+        #region OneToMany
+        [Association("Client-Tickets")]
+        public XPCollection<Ticket> Tickets
+        {
+            get
+            {
+                return GetCollection<Ticket>("Tickets");
+            }
+        }
+        #endregion
+
     }
 }

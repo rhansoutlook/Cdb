@@ -15,35 +15,71 @@ using DevExpress.Persistent.Validation;
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
-    //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
-    //[Persistent("DatabaseTableName")]
-    // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     public class TicketResponse : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+    {
+        private string proposedSolution;
+        private DateTime responseDate;
+        private InternalUser managerId;
+        private Ticket ticketId;
+
         public TicketResponse(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
         {
-            base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
+            base.AfterConstruction();            
         }
-        //private string _PersistentProperty;
-        //[XafDisplayName("My display name"), ToolTip("My hint message")]
-        //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]
-        //[Persistent("DatabaseColumnName"), RuleRequiredField(DefaultContexts.Save)]
-        //public string PersistentProperty {
-        //    get { return _PersistentProperty; }
-        //    set { SetPropertyValue("PersistentProperty", ref _PersistentProperty, value); }
-        //}
+        public DateTime ResponseDate
+        {
+            get
+            {
+                return responseDate;
+            }
+            set
+            {
+                SetPropertyValue("ResponseDate", ref responseDate, value);
+            }
+        }
+        public string ProposedSolution
+        {
+            get
+            {
+                return proposedSolution;
+            }
+            set
+            {
+                SetPropertyValue("ProposedSolution", ref proposedSolution, value);
+            }
+        }
 
-        //[Action(Caption = "My UI Action", ConfirmationMessage = "Are you sure?", ImageName = "Attention", AutoCommit = true)]
-        //public void ActionMethod() {
-        //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
-        //    this.PersistentProperty = "Paid";
-        //}
+
+        #region Foreign Keys
+        [Association("Ticket-TicketResponses"), ImmediatePostData]
+        public Ticket TicketId
+        {
+            get
+            {
+                return ticketId;
+            }
+            set
+            {
+                SetPropertyValue("TicketId", ref ticketId, value);
+            }
+        }
+        [Association("Manager-TicketResponses"), ImmediatePostData]
+        public InternalUser ManagerId
+        {
+            get
+            {
+                return managerId;
+            }
+            set
+            {
+                SetPropertyValue("ManagerId", ref managerId, value);
+            }
+        }
+
+        #endregion
     }
 }

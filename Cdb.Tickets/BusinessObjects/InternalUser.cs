@@ -66,6 +66,14 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<Comment>("Comments");
             }
         }
+        [Association("Manager-TicketResponses"), ImmediatePostData]
+        public XPCollection<TicketResponse> TicketResponses
+        {
+            get
+            {
+                return GetCollection<TicketResponse>("TicketResponses");
+            }
+        }
         #endregion
 
     }
