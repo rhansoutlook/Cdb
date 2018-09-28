@@ -15,18 +15,20 @@ using DevExpress.Persistent.Validation;
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class TicketType : BaseObject
-    { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        public TicketType(Session session)
+    public class TicketState : BaseObject
+    { 
+        // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+        public TicketState(Session session)
             : base(session)
         {
         }
         public override void AfterConstruction()
+
         {
             base.AfterConstruction();
         }
 
-        [Association("TicketType-Tickets")]
+        [Association("TicketState-Tickets")]
         public XPCollection<Ticket> Tickets
         {
             get

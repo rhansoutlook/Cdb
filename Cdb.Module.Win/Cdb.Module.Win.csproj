@@ -58,6 +58,12 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Cdb.Notifications">
+      <HintPath>..\Cdb.Notifications\bin\Debug\Cdb.Notifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Cdb.Tickets">
+      <HintPath>..\Cdb.Tickets\bin\Debug\Cdb.Tickets.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.ExpressApp.Security.v18.1, Version=18.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
