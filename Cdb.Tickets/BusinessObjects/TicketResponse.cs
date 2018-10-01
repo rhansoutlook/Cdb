@@ -20,6 +20,7 @@ namespace Cdb.Tickets.BusinessObjects
         private string proposedSolution;
         private DateTime responseDate;
         private InternalUser managerId;
+        private InternalUser employeeId;
         private Ticket ticketId;
 
         public TicketResponse(Session session)
@@ -67,6 +68,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("TicketId", ref ticketId, value);
             }
         }
+
         [Association("Manager-TicketResponses"), ImmediatePostData]
         public InternalUser ManagerId
         {
@@ -79,7 +81,19 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("ManagerId", ref managerId, value);
             }
         }
-
+        
+        [Association("Employee-TicketResponses"), ImmediatePostData]
+        public InternalUser EmployeeId
+        {
+            get
+            {
+                return employeeId;
+            }
+            set
+            {
+                SetPropertyValue("EmployeeId", ref employeeId, value);
+            }
+        }
         #endregion
     }
 }

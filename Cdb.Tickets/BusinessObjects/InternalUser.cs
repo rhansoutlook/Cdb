@@ -67,11 +67,19 @@ namespace Cdb.Tickets.BusinessObjects
             }
         }
         [Association("Manager-TicketResponses"), ImmediatePostData]
-        public XPCollection<TicketResponse> TicketResponses
+        public XPCollection<TicketResponse> TicketResponsesByManager
         {
             get
             {
-                return GetCollection<TicketResponse>("TicketResponses");
+                return GetCollection<TicketResponse>("TicketResponsesByManager");
+            }
+        }
+        [Association("Employee-TicketResponses"), ImmediatePostData]
+        public XPCollection<TicketResponse> TicketResponsesByEmployee
+        {
+            get
+            {
+                return GetCollection<TicketResponse>("TicketResponsesByEmployee");
             }
         }
         #endregion
