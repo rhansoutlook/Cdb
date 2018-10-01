@@ -17,12 +17,13 @@ namespace Cdb.Tickets.BusinessObjects
     [DefaultClassOptions]
     public class TicketResponse : BaseObject
     {
+        #region Private declarations
         private string proposedSolution;
         private DateTime responseDate;
         private InternalUser managerId;
         private InternalUser employeeId;
-        private Ticket ticketId;
-
+        private Ticket ticketId; 
+        #endregion
         public TicketResponse(Session session)
             : base(session)
         {
@@ -31,6 +32,8 @@ namespace Cdb.Tickets.BusinessObjects
         {
             base.AfterConstruction();            
         }
+
+        #region Columns
         public DateTime ResponseDate
         {
             get
@@ -53,7 +56,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("ProposedSolution", ref proposedSolution, value);
             }
         }
-
+        #endregion
 
         #region Foreign Keys
         [Association("Ticket-TicketResponses"), ImmediatePostData]
@@ -68,7 +71,6 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("TicketId", ref ticketId, value);
             }
         }
-
         [Association("Manager-TicketResponses"), ImmediatePostData]
         public InternalUser ManagerId
         {
@@ -80,8 +82,7 @@ namespace Cdb.Tickets.BusinessObjects
             {
                 SetPropertyValue("ManagerId", ref managerId, value);
             }
-        }
-        
+        }    
         [Association("Employee-TicketResponses"), ImmediatePostData]
         public InternalUser EmployeeId
         {
