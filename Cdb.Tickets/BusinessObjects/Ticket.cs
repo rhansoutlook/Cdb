@@ -4,7 +4,7 @@ using System.Text;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp;
 using System.ComponentModel;
-using DevExpress.ExpressApp.DC;
+//using DevExpress.ExpressApp.DC;
 using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
 using System.Collections.Generic;
@@ -214,7 +214,7 @@ namespace Cdb.Tickets.BusinessObjects
         #endregion
 
         #region OneToMany
-        [Association("Ticket-Comments")]
+        [Association("Ticket-Comments"), Aggregated]
         public XPCollection<Comment> Comments
         {
             get
@@ -222,7 +222,7 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<Comment>("Comments");
             }
         }
-        [Association("Ticket-TicketResponses")]
+        [Association("Ticket-TicketResponses"), Aggregated]
         public XPCollection<TicketResponse> TicketResponses
         {
             get
