@@ -88,7 +88,6 @@
     <Compile Include="BusinessObjects\Client.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
     <Compile Include="BusinessObjects\InternalUser.cs" />
-    <Compile Include="BusinessObjects\Office.cs" />
     <Compile Include="BusinessObjects\Position.cs" />
     <Compile Include="BusinessObjects\Ticket.cs" />
     <Compile Include="BusinessObjects\TicketResponse.cs" />
@@ -110,6 +109,7 @@
       <SubType>Designer</SubType>
       <DependentUpon>Module.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DatabaseUpdate\ReadMe.txt" />

@@ -1,5 +1,12 @@
-﻿<?xml version="1.0" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
-  <Views>
-  </Views>
+  <BOModel>
+    <Class Name="Cdb.Tickets.BusinessObjects.TicketResponse" Caption="Response" />
+    <Class Name="Cdb.Tickets.BusinessObjects.TicketSource" Caption="Source" />
+    <Class Name="Cdb.Tickets.BusinessObjects.TicketState" Caption="State" />
+    <Class Name="Cdb.Tickets.BusinessObjects.TicketType" Caption="Type" />
+  </BOModel>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="18.1.6.0" IsNewNode="True" />
+  </SchemaModules>
 </Application>

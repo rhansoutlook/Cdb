@@ -3,8 +3,6 @@ using System.Linq;
 using System.Text;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp;
-using System.ComponentModel;
-//using DevExpress.ExpressApp.DC;
 using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
 using System.Collections.Generic;
@@ -32,8 +30,7 @@ namespace Cdb.Tickets.BusinessObjects
         private InternalUser raisedBy;
         private InternalUser assignedTo;
         private Client clientId;
-        private Office officeId;
-
+        
         #endregion
         public Ticket(Session session)
             : base(session)
@@ -127,6 +124,7 @@ namespace Cdb.Tickets.BusinessObjects
 
         #region Foreign Keys
         [Association("TicketSource-Tickets"), ImmediatePostData]
+        [DisplayName("Source")]
         public TicketSource TicketSourceId
         {
             get
@@ -138,7 +136,9 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("TicketSourceId", ref ticketSourceId, value);
             }
         }
+
         [Association("TicketState-Tickets") , ImmediatePostData]
+        [DisplayName("State")]
         public TicketState TicketStateId
         {
             get
@@ -150,7 +150,9 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("TicketStateId", ref ticketStateId, value);
             }
         }
+
         [Association("TicketType-Tickets"), ImmediatePostData]
+        [DisplayName("Type")]
         public TicketType TicketTypeId
         {
             get
@@ -162,6 +164,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("TicketTypeId", ref ticketTypeId, value);
             }
         }
+
         [Association("InternalUser-TicketsRaisedBy"),ImmediatePostData]
         public InternalUser RaisedBy
         {
@@ -174,6 +177,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("RaisedBy", ref raisedBy, value);
             }
         }
+
         [Association("InternalUser-TicketsAssignedTo"), ImmediatePostData]
         public InternalUser AssignedTo
         {
@@ -186,7 +190,9 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("AssignedTo", ref assignedTo, value);
             }
         }
+
         [Association("Client-Tickets"), ImmediatePostData]
+        [DisplayName("Client")]
         public Client ClientId
         {
             get
@@ -198,19 +204,6 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("ClientId", ref clientId, value);
             }
         }
-        [Association("Office-Tickets"), ImmediatePostData]
-        public Office OfficeId
-        {
-            get
-            {
-                return officeId;
-            }
-            set
-            {
-                SetPropertyValue("OfficeId", ref officeId, value);
-            }
-        }
-
         #endregion
 
         #region OneToMany

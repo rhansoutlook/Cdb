@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp;
-using System.ComponentModel;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
@@ -19,7 +18,8 @@ namespace Cdb.Tickets.BusinessObjects
     {
         // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         private Ticket ticketId;
-        private InternalUser internalUserId;        
+        private InternalUser internalUserId;
+        private string commentText;
         public Comment(Session session)
             : base(session)
         {
@@ -28,6 +28,20 @@ namespace Cdb.Tickets.BusinessObjects
         {
             base.AfterConstruction();
         }
+
+        [DisplayName("Enter comments")]
+        public string CommentText
+        {
+            get
+            {
+                return commentText;
+            }
+            set
+            {
+                SetPropertyValue("CommentText", ref commentText, value);
+            }
+        }
+
 
         #region Foreign Keys
         [Association("Ticket-Comments"), ImmediatePostData]
