@@ -7,6 +7,7 @@ using DevExpress.ExpressApp.Updating;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp.Xpo;
 using DevExpress.Persistent.BaseImpl;
+using Cdb.Tickets.BusinessObjects;
 
 namespace Cdb.Tickets.DatabaseUpdate {
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppUpdatingModuleUpdatertopic.aspx
@@ -16,14 +17,34 @@ namespace Cdb.Tickets.DatabaseUpdate {
         }
         public override void UpdateDatabaseAfterUpdateSchema() {
             base.UpdateDatabaseAfterUpdateSchema();
-            //string name = "MyName";
-            //DomainObject1 theObject = ObjectSpace.FindObject<DomainObject1>(CriteriaOperator.Parse("Name=?", name));
-            //if(theObject == null) {
-            //    theObject = ObjectSpace.CreateObject<DomainObject1>();
-            //    theObject.Name = name;
-            //}
 
-			//ObjectSpace.CommitChanges(); //Uncomment this line to persist created object(s).
+            #region Create Priorities for the Priority Entity
+            // If priority 'Low' does not exist, create it
+
+            Priority low = ObjectSpace.FindObject<Priority>(new BinaryOperator("Description", "Low"));
+            if (low == null)
+            {
+                low = ObjectSpace.CreateObject<Priority>();
+                low.Description = "Low";
+            }
+            // If priority 'Medium' does not exist, create it
+
+            Priority normal = ObjectSpace.FindObject<Priority>(new BinaryOperator("Description", "Normal"));
+            if (normal == null)
+            {
+                normal = ObjectSpace.CreateObject<Priority>();
+                normal.Description = "Normal";
+            }
+            // If a role with the Administrators name doesn't exist in the database, create this role
+            Priority high = ObjectSpace.FindObject<Priority>(new BinaryOperator("Description", "High"));
+            if (high == null)
+            {
+                high = ObjectSpace.CreateObject<Priority>();
+                high.Description = "High";
+            }
+
+            #endregion
+            ObjectSpace.CommitChanges();
         }
         public override void UpdateDatabaseBeforeUpdateSchema() {
             base.UpdateDatabaseBeforeUpdateSchema();

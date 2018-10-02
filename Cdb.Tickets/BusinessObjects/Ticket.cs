@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
 using DevExpress.Xpo;
-using DevExpress.ExpressApp;
-using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
-using System.Collections.Generic;
-using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
 
 namespace Cdb.Tickets.BusinessObjects
 {
@@ -22,11 +15,11 @@ namespace Cdb.Tickets.BusinessObjects
         private DateTime errorIdentifiedDate;
         private string ticketDescription;
         private string followUp;
-        private Priority priority;
 
         private TicketSource ticketSourceId;
         private TicketState ticketStateId;
         private TicketType ticketTypeId;
+        private Priority priorityId;
         private InternalUser raisedBy;
         private InternalUser assignedTo;
         private Client clientId;
@@ -109,20 +102,24 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("FollowUp", ref followUp, value);
             }
         }
-        public Priority Priority
+        #endregion    
+
+        #region Foreign Keys
+        [Association("Priority-Tickets"), ImmediatePostData]
+        [DisplayName("Priority")]
+        public Priority PriorityId
         {
             get
             {
-                return priority;
+                return priorityId;
             }
             set
             {
-                SetPropertyValue("Priority", ref priority, value);
+                SetPropertyValue("Priority", ref priorityId, value);
             }
         }
-        #endregion    }
 
-        #region Foreign Keys
+
         [Association("TicketSource-Tickets"), ImmediatePostData]
         [DisplayName("Source")]
         public TicketSource TicketSourceId
@@ -223,19 +220,6 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<TicketResponse>("TicketResponses");
             }
         }
-
-
         #endregion
-
-    }
-
-    public enum Priority
-    {
-        [ImageName("State_Priority_Low")]
-        Low = 0,
-        [ImageName("State_Priority_Normal")]
-        Normal = 1,
-        [ImageName("State_Priority_High")]
-        High = 2
-    }
+    }    
 }

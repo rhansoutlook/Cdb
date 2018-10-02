@@ -15,6 +15,7 @@ using DevExpress.Persistent.Validation;
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
+    [DefaultProperty("Description")]
     public class TicketState : BaseObject
     {
         private string description;
