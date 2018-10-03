@@ -51,6 +51,7 @@ namespace Cdb.Tickets.BusinessObjects
         }
 
         #region Columns
+        [DevExpress.Xpo.Indexed(Unique = true)]
         public int TicketNumber
         {
             get
