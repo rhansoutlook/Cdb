@@ -8,7 +8,7 @@ using DevExpress.Persistent.BaseImpl;
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Ticket : BaseObject, IObjectSpaceLink
+    public class Ticket : BaseObject
     {        
         #region Private declarations
         private int ticketNumber; 
@@ -239,9 +239,6 @@ namespace Cdb.Tickets.BusinessObjects
         }
 
         #endregion
-
-        [VisibleInListView(false), VisibleInDetailView(false)]
-        public IObjectSpace ObjectSpace { get; set; }
 
     }
 }

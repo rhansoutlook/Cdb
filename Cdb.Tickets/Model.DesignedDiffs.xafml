@@ -28,6 +28,8 @@
     <SchemaModule Name="SystemModule" Version="18.1.6.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="Priority_DetailView" AllowDelete="False" />
+    <ListView Id="Priority_ListView" AllowDelete="False" />
     <ListView Id="Priority_Tickets_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" />
     <ListView Id="TicketSource_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
     <ListView Id="TicketState_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
