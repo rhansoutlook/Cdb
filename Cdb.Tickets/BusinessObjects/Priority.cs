@@ -19,7 +19,6 @@ namespace Cdb.Tickets.BusinessObjects
     public class Priority : BaseObject
     {
         private string description;
-        // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         public Priority(Session session)
             : base(session)
         {
@@ -27,7 +26,6 @@ namespace Cdb.Tickets.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
         public string Description
@@ -48,7 +46,5 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<Ticket>("Tickets");
             }
         }
-
-
     }
 }
