@@ -238,6 +238,7 @@ namespace Cdb.Tickets.BusinessObjects
 
         #endregion
 
+        [VisibleInListView(false), VisibleInDetailView(false)]
         public IObjectSpace ObjectSpace { get; set; }
 
     }
