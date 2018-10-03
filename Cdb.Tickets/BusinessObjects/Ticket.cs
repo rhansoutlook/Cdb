@@ -136,7 +136,7 @@ namespace Cdb.Tickets.BusinessObjects
 
 
         [Association("TicketSource-Tickets"), ImmediatePostData]
-        [DisplayName("Source")]
+        [DisplayName("Ticket Source")]
         public TicketSource TicketSource
         {
             get
@@ -150,7 +150,7 @@ namespace Cdb.Tickets.BusinessObjects
         }
 
         [Association("TicketState-Tickets") , ImmediatePostData]
-        [DisplayName("State")]
+        [DisplayName("Ticket State")]
         public TicketState TicketState
         {
             get
@@ -164,7 +164,7 @@ namespace Cdb.Tickets.BusinessObjects
         }
 
         [Association("TicketType-Tickets"), ImmediatePostData]
-        [DisplayName("Type")]
+        [DisplayName("Ticket Type")]
         public TicketType TicketType
         {
             get

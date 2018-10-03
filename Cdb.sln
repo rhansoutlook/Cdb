@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdb.Module", "Cdb.Module\Cdb.Module.csproj", "{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FDC45D25-7B7F-4FA5-80F5-F97846AA2743} = {FDC45D25-7B7F-4FA5-80F5-F97846AA2743}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cdb.Module.Win", "Cdb.Module.Win\Cdb.Module.Win.csproj", "{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}"
 EndProject

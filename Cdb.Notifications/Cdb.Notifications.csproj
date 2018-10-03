@@ -85,8 +85,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObjects\EventType.cs" />
-    <Compile Include="BusinessObjects\Notification.cs" />
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>

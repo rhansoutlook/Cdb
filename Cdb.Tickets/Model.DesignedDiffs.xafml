@@ -1,12 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
   <BOModel>
+    <Class Name="Cdb.Tickets.BusinessObjects.Ticket">
+      <OwnMembers>
+        <Member Name="TicketNumber" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
     <Class Name="Cdb.Tickets.BusinessObjects.TicketResponse" Caption="Response" />
     <Class Name="Cdb.Tickets.BusinessObjects.TicketSource" Caption="Source" />
     <Class Name="Cdb.Tickets.BusinessObjects.TicketState" Caption="State" />
     <Class Name="Cdb.Tickets.BusinessObjects.TicketType" Caption="Type" />
   </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="Comment_ListView" Visible="False" />
+          <Item Id="TicketResponse_ListView" Visible="False" />
+          <Item Id="TicketSource_ListView" Caption="Ticket Source" />
+          <Item Id="TicketState_ListView" Caption="Ticket State" />
+          <Item Id="TicketType_ListView" Caption="Ticket Type" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="18.1.6.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <ListView Id="Priority_Tickets_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" />
+    <ListView Id="TicketSource_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
+    <ListView Id="TicketState_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
+    <ListView Id="TicketType_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
+  </Views>
 </Application>

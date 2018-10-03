@@ -11,11 +11,12 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    [DefaultProperty("Description")]
+    [DefaultProperty("Description")]    
     public class TicketState : BaseObject
     {
         private string description;
