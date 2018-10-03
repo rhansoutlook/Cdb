@@ -30,6 +30,7 @@ namespace Cdb.Tickets.BusinessObjects
         }
 
         [DisplayName("Enter comments")]
+        [Size(4096)]
         public string CommentText
         {
             get

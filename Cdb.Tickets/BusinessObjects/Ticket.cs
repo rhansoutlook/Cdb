@@ -95,6 +95,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("errorIdentifiedDate", ref errorIdentifiedDate, value);
             }
         }
+        [Size(4096)]
         public string TicketDescription
         {
             get
@@ -106,6 +107,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("TicketDescription", ref ticketDescription, value);
             }
         }
+        [Size(4096)]
         public string FollowUp
         {
             get

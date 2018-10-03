@@ -45,6 +45,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("ResponseDate", ref responseDate, value);
             }
         }
+        [Size(4096)]
         public string ProposedSolution
         {
             get
