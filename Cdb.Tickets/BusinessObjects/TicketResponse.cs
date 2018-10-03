@@ -20,9 +20,9 @@ namespace Cdb.Tickets.BusinessObjects
         #region Private declarations
         private string proposedSolution;
         private DateTime responseDate;
-        private InternalUser managerId;
-        private InternalUser employeeId;
-        private Ticket ticketId; 
+        private InternalUser manager;
+        private InternalUser employee;
+        private Ticket ticket; 
         #endregion
         public TicketResponse(Session session)
             : base(session)
@@ -60,39 +60,39 @@ namespace Cdb.Tickets.BusinessObjects
 
         #region Foreign Keys
         [Association("Ticket-TicketResponses"), ImmediatePostData]
-        public Ticket TicketId
+        public Ticket Ticket
         {
             get
             {
-                return ticketId;
+                return ticket;
             }
             set
             {
-                SetPropertyValue("TicketId", ref ticketId, value);
+                SetPropertyValue("Ticket", ref ticket, value);
             }
         }
         [Association("Manager-TicketResponses"), ImmediatePostData]
-        public InternalUser ManagerId
+        public InternalUser Manager
         {
             get
             {
-                return managerId;
+                return manager;
             }
             set
             {
-                SetPropertyValue("ManagerId", ref managerId, value);
+                SetPropertyValue("Manager", ref manager, value);
             }
         }    
         [Association("Employee-TicketResponses"), ImmediatePostData]
-        public InternalUser EmployeeId
+        public InternalUser Employee
         {
             get
             {
-                return employeeId;
+                return employee;
             }
             set
             {
-                SetPropertyValue("EmployeeId", ref employeeId, value);
+                SetPropertyValue("Employee", ref employee, value);
             }
         }
         #endregion

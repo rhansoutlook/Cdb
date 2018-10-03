@@ -18,13 +18,13 @@ namespace Cdb.Tickets.BusinessObjects
         private string ticketDescription;
         private string followUp;
 
-        private TicketSource ticketSourceId;
-        private TicketState ticketStateId;
-        private TicketType ticketTypeId;
+        private TicketSource ticketSource;
+        private TicketState ticketState;
+        private TicketType ticketType;
         private Priority priority;
         private InternalUser raisedBy;
         private InternalUser assignedTo;
-        private Client clientId;
+        private Client client;
 
         #endregion
         public Ticket(Session session)
@@ -137,43 +137,43 @@ namespace Cdb.Tickets.BusinessObjects
 
         [Association("TicketSource-Tickets"), ImmediatePostData]
         [DisplayName("Source")]
-        public TicketSource TicketSourceId
+        public TicketSource TicketSource
         {
             get
             {
-                return ticketSourceId;
+                return ticketSource;
             }
             set
             {
-                SetPropertyValue("TicketSourceId", ref ticketSourceId, value);
+                SetPropertyValue("TicketSourceId", ref ticketSource, value);
             }
         }
 
         [Association("TicketState-Tickets") , ImmediatePostData]
         [DisplayName("State")]
-        public TicketState TicketStateId
+        public TicketState TicketState
         {
             get
             {
-                return ticketStateId;
+                return ticketState;
             }
             set
             {
-                SetPropertyValue("TicketStateId", ref ticketStateId, value);
+                SetPropertyValue("TicketState", ref ticketState, value);
             }
         }
 
         [Association("TicketType-Tickets"), ImmediatePostData]
         [DisplayName("Type")]
-        public TicketType TicketTypeId
+        public TicketType TicketType
         {
             get
             {
-                return ticketTypeId;
+                return ticketType;
             }
             set
             {
-                SetPropertyValue("TicketTypeId", ref ticketTypeId, value);
+                SetPropertyValue("TicketType", ref ticketType, value);
             }
         }
 
@@ -205,15 +205,15 @@ namespace Cdb.Tickets.BusinessObjects
 
         [Association("Client-Tickets"), ImmediatePostData]
         [DisplayName("Client")]
-        public Client ClientId
+        public Client Client
         {
             get
             {
-                return clientId;
+                return client;
             }
             set
             {
-                SetPropertyValue("ClientId", ref clientId, value);
+                SetPropertyValue("ClientId", ref client, value);
             }
         }
         #endregion
@@ -236,12 +236,9 @@ namespace Cdb.Tickets.BusinessObjects
             }
         }
 
-        public IObjectSpace ObjectSpace { get; set; }
-
-
         #endregion
 
-
+        public IObjectSpace ObjectSpace { get; set; }
 
     }
 }
