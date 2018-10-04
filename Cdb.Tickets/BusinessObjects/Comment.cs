@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using Cdb.Tickets.SecurityObjects;
 
 namespace Cdb.Tickets.BusinessObjects
 {

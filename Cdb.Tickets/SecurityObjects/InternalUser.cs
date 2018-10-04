@@ -11,11 +11,15 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using DevExpress.Persistent.BaseImpl.PermissionPolicy;
+using Cdb.Tickets.BusinessObjects;
 
-namespace Cdb.Tickets.BusinessObjects
+
+
+namespace Cdb.Tickets.SecurityObjects
 {
     [DefaultClassOptions]
-    public class InternalUser : User
+    public class InternalUser : PermissionPolicyUser
     {
         // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         private Boolean isFormerEmployee;

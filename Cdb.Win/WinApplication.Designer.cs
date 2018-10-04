@@ -40,9 +40,9 @@
             // securityStrategyComplex1
             // 
             this.securityStrategyComplex1.Authentication = this.authenticationStandard1;
-            this.securityStrategyComplex1.RoleType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyRole);
+            this.securityStrategyComplex1.RoleType = typeof(Cdb.Tickets.SecurityObjects.ExtendedSecurityRole);
             this.securityStrategyComplex1.SupportNavigationPermissionsForTypes = false;
-            this.securityStrategyComplex1.UserType = typeof(DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser);
+            this.securityStrategyComplex1.UserType = typeof(Cdb.Tickets.SecurityObjects.InternalUser);
             // 
             // authenticationStandard1
             // 

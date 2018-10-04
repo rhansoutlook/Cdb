@@ -88,7 +88,8 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\Client.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
-    <Compile Include="BusinessObjects\InternalUser.cs" />
+    <Compile Include="SecurityObjects\ExtendedSecurityRole.cs" />
+    <Compile Include="SecurityObjects\InternalUser.cs" />
     <Compile Include="BusinessObjects\Position.cs" />
     <Compile Include="BusinessObjects\Priority.cs" />
     <Compile Include="BusinessObjects\Ticket.cs" />
@@ -127,6 +128,7 @@
     <None Include="Images\ReadMe.txt" />
     <None Include="ReadMe.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

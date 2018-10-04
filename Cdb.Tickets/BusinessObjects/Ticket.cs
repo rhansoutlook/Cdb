@@ -4,6 +4,7 @@ using DevExpress.Persistent.Base;
 using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.Persistent.BaseImpl;
+using Cdb.Tickets.SecurityObjects;
 
 namespace Cdb.Tickets.BusinessObjects
 {
