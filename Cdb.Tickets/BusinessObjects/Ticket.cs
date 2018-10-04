@@ -39,11 +39,6 @@ namespace Cdb.Tickets.BusinessObjects
 
             CreationDate = DateTime.Now;
             
-            // This code is not working. Need to discuss
-            //Priority priority = ObjectSpace.FindObject<Priority>(new BinaryOperator("Description", "Normal"));
-            //if (priority != null)
-            //    Priority = priority;
-
             Priority priority = Session.FindObject<Priority>(new BinaryOperator("Description", "Medium") 
                 || new BinaryOperator("Description", "Normal"));
             if (priority != null)

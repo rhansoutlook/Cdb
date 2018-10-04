@@ -12,14 +12,15 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
+using Cdb.Tickets.Components;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    [DefaultProperty("Description")]    
-    public class TicketState : BaseObject
+    [DefaultProperty("GenericTextField")]    
+    public class TicketState : BaseObject, ITicketGeneric
     {
-        private string description;
+        private string genericTextField;
         public TicketState(Session session)
             : base(session)
         {
@@ -30,15 +31,16 @@ namespace Cdb.Tickets.BusinessObjects
             base.AfterConstruction();
         }
 
-        public string Description
+        [DisplayName("Description")]
+        public string GenericTextField
         {
             get
             {
-                return description;
+                return genericTextField;
             }
             set
             {
-                SetPropertyValue("Description", ref description, value);
+                SetPropertyValue("GenericTextField", ref genericTextField, value);
             }
         }
 

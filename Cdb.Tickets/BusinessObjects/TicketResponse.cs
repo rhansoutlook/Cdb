@@ -12,11 +12,13 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using Cdb.Tickets.SecurityObjects;
+using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
+using Cdb.Tickets.Components;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class TicketResponse : BaseObject
+    public class TicketResponse : BaseObject, ITicketResponse
     {
         #region Private declarations
         private string proposedSolution;
@@ -34,7 +36,7 @@ namespace Cdb.Tickets.BusinessObjects
             base.AfterConstruction();            
         }
 
-        #region Columns
+        #region Columns        
         public DateTime ResponseDate
         {
             get

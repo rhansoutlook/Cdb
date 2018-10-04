@@ -22,8 +22,9 @@ namespace Cdb.Module.DatabaseUpdate {
         public override void UpdateDatabaseAfterUpdateSchema()
         {
             base.UpdateDatabaseAfterUpdateSchema();
-            ExtendedSecurityRole defaultRole = CreateUserRole();
-            ExtendedSecurityRole administratorRole = CreateAdministratorRole();
+            PermissionPolicyRole defaultRole = CreateUserRole();
+            defaultRole.CanEditModel = true;
+            PermissionPolicyRole administratorRole = CreateAdministratorRole();
             InternalUser userAdmin = ObjectSpace.FindObject<InternalUser>(new BinaryOperator("UserName", "Admin"));
             if (userAdmin == null)
             {
@@ -40,32 +41,31 @@ namespace Cdb.Module.DatabaseUpdate {
                 user1.UserName = "User";
                 user1.IsActive = true;
                 user1.SetPassword("");
-//                userSam.Roles.Add(exporterRole);
                 user1.Roles.Add(defaultRole);
             }
             ObjectSpace.CommitChanges();
         }
 
-        private ExtendedSecurityRole CreateAdministratorRole()
+        private PermissionPolicyRole CreateAdministratorRole()
         {
-            ExtendedSecurityRole administratorRole = ObjectSpace.FindObject<ExtendedSecurityRole>(
+            PermissionPolicyRole administratorRole = ObjectSpace.FindObject<PermissionPolicyRole>(
                 new BinaryOperator("Name", SecurityStrategyComplex.AdministratorRoleName));
             if (administratorRole == null)
             {
-                administratorRole = ObjectSpace.CreateObject<ExtendedSecurityRole>();
+                administratorRole = ObjectSpace.CreateObject<PermissionPolicyRole>();
                 administratorRole.Name = SecurityStrategyComplex.AdministratorRoleName;
                 administratorRole.IsAdministrative = true;
             }
             return administratorRole;
         }
 
-        private ExtendedSecurityRole CreateUserRole()
+        private PermissionPolicyRole CreateUserRole()
         {
-            ExtendedSecurityRole userRole = ObjectSpace.FindObject<ExtendedSecurityRole>(
+            PermissionPolicyRole userRole = ObjectSpace.FindObject<PermissionPolicyRole>(
                 new BinaryOperator("Name", "Default"));
             if (userRole == null)
             {
-                userRole = ObjectSpace.CreateObject<ExtendedSecurityRole>();
+                userRole = ObjectSpace.CreateObject<PermissionPolicyRole>();
                 userRole.Name = "Default";
 
                 userRole.SetTypePermission<Task>(SecurityOperations.FullAccess, SecurityPermissionState.Allow);

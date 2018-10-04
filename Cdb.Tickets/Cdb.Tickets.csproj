@@ -88,6 +88,8 @@
   <ItemGroup>
     <Compile Include="BusinessObjects\Client.cs" />
     <Compile Include="BusinessObjects\Comment.cs" />
+    <Compile Include="Components\ITicketGeneric.cs" />
+    <Compile Include="Components\ITicketResponse.cs" />
     <Compile Include="SecurityObjects\ExtendedSecurityRole.cs" />
     <Compile Include="SecurityObjects\InternalUser.cs" />
     <Compile Include="BusinessObjects\Position.cs" />
