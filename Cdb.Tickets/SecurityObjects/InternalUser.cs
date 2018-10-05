@@ -7,22 +7,31 @@ using System.ComponentModel;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Data.Filtering;
 using DevExpress.Persistent.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
-using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using DevExpress.Persistent.BaseImpl.PermissionPolicy;
 using Cdb.Tickets.BusinessObjects;
-
-
+using DevExpress.Persistent.Base.General;
+using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
+using Cdb.Tickets.Components;
 
 namespace Cdb.Tickets.SecurityObjects
 {
     [DefaultClassOptions]
-    public class InternalUser : PermissionPolicyUser
+    public class InternalUser : PermissionPolicyUser, IInternalUser
     {
-        // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
+        #region Internl Declarations
         private Boolean isFormerEmployee;
+        private string email;
+        private string firstName;
+        private string lastName;
+        private string middleName;
+        private DateTime birthday;
+        private Position position;
+        #endregion
+
         public InternalUser(Session session)
             : base(session)
         {
@@ -30,9 +39,74 @@ namespace Cdb.Tickets.SecurityObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+
+        #region IPerson
+        public void SetFullName(string fullName)
+        {
+            throw new NotImplementedException();
+        }
+        public string Email
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                SetPropertyValue("Email", ref email, value);
+            }
+        }
+        public string FirstName
+        {
+            get
+            {
+                return firstName;
+            }
+            set
+            {
+                SetPropertyValue("FirstName", ref firstName, value);
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return lastName;
+            }
+            set
+            {
+                SetPropertyValue("LastName", ref lastName, value);
+            }
+        }
+        public string MiddleName
+        {
+            get
+            {
+                return middleName;
+            }
+            set
+            {
+                SetPropertyValue("MiddleName", ref middleName, value);
+            }
+        }
+        public DateTime Birthday
+        {
+            get
+            {
+                return birthday;
+            }
+            set
+            {
+                SetPropertyValue("Birthday", ref birthday, value);
+            }
+        }
+        [NotMapped]
+        public string FullName { get { return string.Concat(FirstName, " ", LastName); } }
+        #endregion
+
+        #region IInternalUser
         public bool IsFormerEmployee
         {
             get
@@ -45,7 +119,6 @@ namespace Cdb.Tickets.SecurityObjects
             }
         }
 
-        #region OneToMany
         [Association("InternalUser-TicketsAssignedTo")]
         public XPCollection<Ticket> AssignedToTickets
         {
@@ -86,6 +159,22 @@ namespace Cdb.Tickets.SecurityObjects
                 return GetCollection<TicketResponse>("TicketResponsesByEmployee");
             }
         }
+
+        [Association("Position-Internal User")]
+        [DisplayName("Position")]
+        public Position Position
+        {
+            get
+            {
+                return position;
+            }
+            set
+            {
+                SetPropertyValue("Position", ref position, value);
+            }
+        }
+
+
         #endregion
 
     }

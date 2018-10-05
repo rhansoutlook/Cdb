@@ -25,7 +25,7 @@ namespace Cdb.Tickets.BusinessObjects
         private DateTime responseDate;
         private InternalUser manager;
         private InternalUser employee;
-        private Ticket ticket; 
+        private Ticket ticket;
         #endregion
         public TicketResponse(Session session)
             : base(session)
@@ -33,9 +33,10 @@ namespace Cdb.Tickets.BusinessObjects
         }
         public override void AfterConstruction()
         {
-            base.AfterConstruction();            
+            base.AfterConstruction();
         }
 
+        #region ITicketResponse
         #region Columns        
         public DateTime ResponseDate
         {
@@ -86,7 +87,7 @@ namespace Cdb.Tickets.BusinessObjects
             {
                 SetPropertyValue("Manager", ref manager, value);
             }
-        }    
+        }
         [Association("Employee-TicketResponses"), ImmediatePostData]
         public InternalUser Employee
         {
@@ -100,5 +101,7 @@ namespace Cdb.Tickets.BusinessObjects
             }
         }
         #endregion
+
+        #endregion    }
     }
 }

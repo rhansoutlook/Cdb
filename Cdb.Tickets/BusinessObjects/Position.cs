@@ -11,11 +11,14 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using Cdb.Tickets.Components;
+using Cdb.Tickets.SecurityObjects;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Position : BaseObject
+    [DefaultProperty("Description")]
+    public class Position : BaseObject, IPosition
     { 
         public Position(Session session)
             : base(session)
@@ -24,7 +27,19 @@ namespace Cdb.Tickets.BusinessObjects
         public override void AfterConstruction()
         {
             base.AfterConstruction();
-            // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
+
+        #region IPosition
+        public string Description { get; set; }
+
+        [Association("Position-Internal User")]
+        public XPCollection<InternalUser> InternalUsers
+        {
+            get
+            {
+                return GetCollection<InternalUser>("InternalUsers");
+            }
+        }
+        #endregion
     }
 }

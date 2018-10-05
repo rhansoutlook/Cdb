@@ -5,11 +5,12 @@ using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.Persistent.BaseImpl;
 using Cdb.Tickets.SecurityObjects;
+using Cdb.Tickets.Components;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Ticket : BaseObject
+    public class Ticket : BaseObject, ITicket
     {        
         #region Private declarations
         private int ticketNumber; 
@@ -46,6 +47,7 @@ namespace Cdb.Tickets.BusinessObjects
 
         }
 
+        #region ITicket
         #region Columns
         [DevExpress.Xpo.Indexed(Unique = true)]
         public int TicketNumber
@@ -116,7 +118,7 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("FollowUp", ref followUp, value);
             }
         }
-        #endregion    
+        #endregion
 
         #region Foreign Keys
         [Association("Priority-Tickets"), ImmediatePostData]
@@ -217,7 +219,7 @@ namespace Cdb.Tickets.BusinessObjects
         }
         #endregion
 
-        #region OneToMany
+        #region Child Entities
         [Association("Ticket-Comments"), Aggregated]
         public XPCollection<Comment> Comments
         {
@@ -234,8 +236,7 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<TicketResponse>("TicketResponses");
             }
         }
-
         #endregion
-
+        #endregion
     }
 }

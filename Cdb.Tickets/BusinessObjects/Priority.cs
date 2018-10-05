@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text;
 using DevExpress.Xpo;
-using DevExpress.ExpressApp;
 using System.ComponentModel;
 using DevExpress.ExpressApp.DC;
 using DevExpress.Data.Filtering;
@@ -11,14 +10,16 @@ using System.Collections.Generic;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using Cdb.Tickets.Components;
+using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    [DefaultProperty("Description")]
-    public class Priority : BaseObject
+    [DefaultProperty("GenericTextField")]
+    public class Priority : BaseObject, ITicketGeneric
     {
-        private string description;
+        private string genericTextField;
         public Priority(Session session)
             : base(session)
         {
@@ -28,12 +29,14 @@ namespace Cdb.Tickets.BusinessObjects
             base.AfterConstruction();
         }
 
-        public string Description
+        #region ITicketGeneric
+        [DisplayName("Description")]
+        public string GenericTextField
         {
-            get { return description; }
+            get { return genericTextField; }
             set
             {
-                SetPropertyValue("Description", ref description, value);
+                SetPropertyValue("GenericTextField", ref genericTextField, value);
             }
 
         }
@@ -46,5 +49,6 @@ namespace Cdb.Tickets.BusinessObjects
                 return GetCollection<Ticket>("Tickets");
             }
         }
+        #endregion    }
     }
 }

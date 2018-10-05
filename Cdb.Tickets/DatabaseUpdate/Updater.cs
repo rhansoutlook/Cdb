@@ -21,26 +21,26 @@ namespace Cdb.Tickets.DatabaseUpdate {
             #region Create Priorities for the Priority Entity
             // If priority 'Low' does not exist, create it
 
-            Priority low = ObjectSpace.FindObject<Priority>(new BinaryOperator("Description", "Low"));
+            Priority low = ObjectSpace.FindObject<Priority>(new BinaryOperator("GenericTextField", "Low"));
             if (low == null)
             {
                 low = ObjectSpace.CreateObject<Priority>();
-                low.Description = "Low";
+                low.GenericTextField = "Low";
             }
             // If priority 'Medium' does not exist, create it
 
-            Priority normal = ObjectSpace.FindObject<Priority>(new BinaryOperator("Description", "Normal"));
+            Priority normal = ObjectSpace.FindObject<Priority>(new BinaryOperator("GenericTextField", "Normal"));
             if (normal == null)
             {
                 normal = ObjectSpace.CreateObject<Priority>();
-                normal.Description = "Normal";
+                normal.GenericTextField = "Normal";
             }
             // If a role with the Administrators name doesn't exist in the database, create this role
-            Priority high = ObjectSpace.FindObject<Priority>(new BinaryOperator("Description", "High"));
+            Priority high = ObjectSpace.FindObject<Priority>(new BinaryOperator("GenericTextField", "High"));
             if (high == null)
             {
                 high = ObjectSpace.CreateObject<Priority>();
-                high.Description = "High";
+                high.GenericTextField = "High";
             }
 
             #endregion

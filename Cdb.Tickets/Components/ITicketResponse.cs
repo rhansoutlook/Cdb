@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Cdb.Tickets.BusinessObjects;
+﻿using Cdb.Tickets.BusinessObjects;
 using Cdb.Tickets.SecurityObjects;
+using System;
+using System.Linq;
 
 namespace Cdb.Tickets.Components
 {

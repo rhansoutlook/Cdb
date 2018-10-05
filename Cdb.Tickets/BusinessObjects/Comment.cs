@@ -11,16 +11,20 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using Cdb.Tickets.SecurityObjects;
+using Cdb.Tickets.Components;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Comment : BaseObject
+    public class Comment : BaseObject, IComment
     {
-        // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
-        private Ticket ticketId;
-        private InternalUser internalUserId;
+        #region Private declarations
+        private Ticket ticket;
+        private InternalUser internalUser;
         private string commentText;
+        private DateTime commentDate;
+        #endregion
+
         public Comment(Session session)
             : base(session)
         {
@@ -30,6 +34,7 @@ namespace Cdb.Tickets.BusinessObjects
             base.AfterConstruction();
         }
 
+        #region IComment
         [DisplayName("Enter comments")]
         [Size(4096)]
         public string CommentText
@@ -43,35 +48,43 @@ namespace Cdb.Tickets.BusinessObjects
                 SetPropertyValue("CommentText", ref commentText, value);
             }
         }
-
-
-        #region Foreign Keys
-        [Association("Ticket-Comments"), ImmediatePostData]
-        public Ticket TicketId
+        public DateTime CommentDate
         {
             get
             {
-                return ticketId;
+                return commentDate;
             }
             set
             {
-                SetPropertyValue("TicketId", ref ticketId, value);
+                SetPropertyValue("CommentDate", ref commentDate, value);
+            }
+        }        
+
+        [Association("Ticket-Comments"), ImmediatePostData]
+        public Ticket Ticket
+        {
+            get
+            {
+                return ticket;
+            }
+            set
+            {
+                SetPropertyValue("Ticket", ref ticket, value);
             }
         }
+
         [Association("InternalUser-Comments"), ImmediatePostData]
-        public InternalUser InternalUserId
+        public InternalUser InternalUser
         {
             get
             {
-                return internalUserId;
+                return internalUser;
             }
             set
             {
-                SetPropertyValue("InternalUserId", ref internalUserId, value);
+                SetPropertyValue("InternalUser", ref internalUser, value);
             }
         }
         #endregion
-
-
     }
 }

@@ -1,13 +1,12 @@
 ﻿using Cdb.Tickets.BusinessObjects;
+using DevExpress.Persistent.Base.General;
 using DevExpress.Xpo;
-using System;
-using System.Linq;
 
 namespace Cdb.Tickets.Components
 {
-    public interface ITicketGeneric 
+    public interface IClient : IPerson
     {
-        string GenericTextField { get; set; }
+        string Organization { get; set; }
         XPCollection<Ticket> Tickets { get; }
     }
 }

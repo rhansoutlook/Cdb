@@ -31,6 +31,7 @@ namespace Cdb.Tickets.BusinessObjects
             base.AfterConstruction();
         }
 
+        #region ITicketGeneric
         [DisplayName("Description")]
         public string GenericTextField
         {
@@ -53,6 +54,7 @@ namespace Cdb.Tickets.BusinessObjects
             }
         }
 
+        #endregion
 
 
 

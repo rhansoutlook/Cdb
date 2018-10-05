@@ -15,6 +15,7 @@ using DevExpress.Persistent.Validation;
 
 namespace Cdb.Tickets.SecurityObjects
 {
+    // Note to self. This class to be deleted in next check in
     [DefaultClassOptions, ImageName("BO_Role")]
     public class ExtendedSecurityRole : PermissionPolicyRole
     {
