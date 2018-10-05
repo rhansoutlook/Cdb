@@ -24,6 +24,7 @@ namespace Cdb.Tickets.SecurityObjects
     {
         #region Internl Declarations
         private Boolean isFormerEmployee;
+        private Boolean isManager;
         private string email;
         private string firstName;
         private string lastName;
@@ -118,7 +119,17 @@ namespace Cdb.Tickets.SecurityObjects
                 SetPropertyValue("IsFormerEmployee", ref isFormerEmployee, value);
             }
         }
-
+        public bool IsManager
+        {
+            get
+            {
+                return isManager;
+            }
+            set
+            {
+                SetPropertyValue("IsManager", ref isManager, value);
+            }
+        }
         [Association("InternalUser-TicketsAssignedTo")]
         public XPCollection<Ticket> AssignedToTickets
         {

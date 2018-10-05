@@ -7,6 +7,7 @@ namespace Cdb.Tickets.Components
     public interface IInternalUser : IPerson
     {
         bool IsFormerEmployee { get; set; }
+        bool IsManager { get; set; }
         Position Position { get; set; }
         XPCollection<Ticket> AssignedToTickets { get;  }
         XPCollection<Ticket> RaisedByTickets { get; }
