@@ -13,14 +13,13 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
 using Cdb.Tickets.Components;
-using Cdb.Tickets.SecurityObjects;
 using DevExpress.Persistent.Base.General;
 using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
 
 namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
-    public class Client : BaseObject, IClient
+    public class Client : BaseObject, IClient, IPerson
     {
         #region Private Declarations
         private string organization;

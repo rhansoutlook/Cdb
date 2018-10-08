@@ -10,6 +10,6 @@ namespace Cdb.Tickets.Components
 {
     public interface ITicketType : ITicketGeneric
     {
-        XPCollection<Ticket> Tickets { get;  }
+        //  This is to allow adding additional interface members in ITicketType if required
     }
 }

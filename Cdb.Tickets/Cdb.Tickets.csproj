@@ -96,6 +96,9 @@
     <Compile Include="Components\ITicket.cs" />
     <Compile Include="Components\ITicketGeneric.cs" />
     <Compile Include="Components\ITicketResponse.cs" />
+    <Compile Include="Components\ITicketSource.cs" />
+    <Compile Include="Components\ITicketState.cs" />
+    <Compile Include="Components\ITicketType.cs" />
     <Compile Include="SecurityObjects\InternalUser.cs" />
     <Compile Include="BusinessObjects\Position.cs" />
     <Compile Include="BusinessObjects\Priority.cs" />

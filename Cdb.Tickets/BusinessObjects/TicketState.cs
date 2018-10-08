@@ -18,12 +18,13 @@ namespace Cdb.Tickets.BusinessObjects
 {
     [DefaultClassOptions]
     [DefaultProperty("GenericTextField")]    
-    public class TicketState : BaseObject, ITicketGeneric
+    public class TicketState : BaseObject, ITicketState
     {
         private string genericTextField;
         public TicketState(Session session)
             : base(session)
         {
+            
         }
         public override void AfterConstruction()
 
@@ -31,7 +32,7 @@ namespace Cdb.Tickets.BusinessObjects
             base.AfterConstruction();
         }
 
-        #region ITicketGeneric
+        #region ITicketState
         [DisplayName("Description")]
         public string GenericTextField
         {

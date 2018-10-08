@@ -20,7 +20,7 @@ using Cdb.Tickets.Components;
 namespace Cdb.Tickets.SecurityObjects
 {
     [DefaultClassOptions]
-    public class InternalUser : PermissionPolicyUser, IInternalUser
+    public class InternalUser : PermissionPolicyUser, IInternalUser, IPerson
     {
         #region Internl Declarations
         private Boolean isFormerEmployee;

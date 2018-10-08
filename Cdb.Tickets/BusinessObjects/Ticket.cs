@@ -40,8 +40,8 @@ namespace Cdb.Tickets.BusinessObjects
 
             CreationDate = DateTime.Now;
             
-            Priority priority = Session.FindObject<Priority>(new BinaryOperator("Description", "Medium") 
-                || new BinaryOperator("Description", "Normal"));
+            Priority priority = Session.FindObject<Priority>(new BinaryOperator("GenericTextField", "Medium") 
+                || new BinaryOperator("GenericTextField", "Normal"));
             if (priority != null)
                 Priority = priority;
 

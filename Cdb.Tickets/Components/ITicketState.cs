@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cdb.Tickets.Components
 {
-    interface ITicketSource : ITicketGeneric
+    public interface ITicketState : ITicketGeneric
     {
-        //  This is to allow adding additional interface members in ITicketSource if required
+        //  This is to allow adding additional interface members in ITicketState if required
+        
+
     }
 }

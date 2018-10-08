@@ -4,7 +4,7 @@ using DevExpress.Xpo;
 
 namespace Cdb.Tickets.Components
 {
-    public interface IClient : IPerson
+    public interface IClient 
     {
         string Organization { get; set; }
         XPCollection<Ticket> Tickets { get; }

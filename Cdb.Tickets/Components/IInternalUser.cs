@@ -4,7 +4,7 @@ using DevExpress.Xpo;
 
 namespace Cdb.Tickets.Components
 {
-    public interface IInternalUser : IPerson
+    public interface IInternalUser 
     {
         bool IsFormerEmployee { get; set; }
         bool IsManager { get; set; }

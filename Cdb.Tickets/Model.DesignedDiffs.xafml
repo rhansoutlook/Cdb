@@ -13,9 +13,10 @@
   </BOModel>
   <NavigationItems>
     <Items>
+      <Item Id="@55338438-34f1-448c-ad4b-3ee8c5a79b4c" Caption="Tickets" IsNewNode="True" />
       <Item Id="Default">
         <Items>
-          <Item Id="Comment_ListView" Visible="False" />
+          <Item Id="Comment_ListView" Visible="False" Index="0" />
           <Item Id="TicketResponse_ListView" Visible="False" />
           <Item Id="TicketSource_ListView" Caption="Ticket Source" />
           <Item Id="TicketState_ListView" Caption="Ticket State" />
@@ -28,9 +29,128 @@
     <SchemaModule Name="SystemModule" Version="18.1.6.0" IsNewNode="True" />
   </SchemaModules>
   <Views>
+    <DetailView Id="Client_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="37.723785166240411">
+            <LayoutGroup Id="Client" RelativeSize="100">
+              <LayoutGroup Id="Client_col1" RelativeSize="63.892445582586426">
+                <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="34.274193548387096" Caption="Organization Name" IsNewNode="True">
+                  <LayoutItem Id="Organization" ViewItem="Organization" Index="0" RelativeSize="78.260869565217391" IsNewNode="True" />
+                  <LayoutItem Id="Item2" Index="1" RelativeSize="21.739130434782609" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="FirstName" RelativeSize="15.028901734104046" Index="1" Removed="True" />
+                <LayoutGroup Id="Item3" ShowCaption="True" CaptionLocation="Top" Index="1" RelativeSize="65.7258064516129" Caption="Contact Person" IsNewNode="True">
+                  <LayoutItem Id="FirstName" ViewItem="FirstName" Index="0" RelativeSize="29.032258064516128" IsNewNode="True" />
+                  <LayoutItem Id="MiddleName" ViewItem="MiddleName" Index="1" RelativeSize="20.967741935483872" IsNewNode="True" />
+                  <LayoutItem Id="LastName" ViewItem="LastName" Index="2" RelativeSize="20.967741935483872" IsNewNode="True" />
+                  <LayoutItem Id="FullName" ViewItem="FullName" Index="3" RelativeSize="29.032258064516128" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="MiddleName" RelativeSize="15.028901734104046" Index="2" Removed="True" />
+                <LayoutItem Id="LastName" ViewItem="LastName" Index="3" RelativeSize="20.809248554913296" Removed="True" />
+                <LayoutItem Id="Email" ViewItem="Email" Index="4" RelativeSize="24" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Client_col2" RelativeSize="36.107554417413574" Caption="Client_col2">
+                <LayoutItem Id="Birthday" ViewItem="Birthday" Index="0" RelativeSize="14.516129032258064" Removed="True" />
+                <LayoutItem Id="FullName" RelativeSize="16.216216216216218" Index="0" Removed="True" />
+                <LayoutGroup Id="Item4" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" Caption="Contact Person Details" IsNewNode="True">
+                  <LayoutItem Id="Birthday" ViewItem="Birthday" Index="0" RelativeSize="18.090452261306531" IsNewNode="True" />
+                  <LayoutItem Id="Email" ViewItem="Email" Index="1" RelativeSize="81.909547738693462" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="Organization" RelativeSize="50" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Tickets_Group" Direction="Vertical" RelativeSize="62.276214833759589">
+            <LayoutItem Id="Tickets" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Client_Tickets_ListView">
+      <Columns>
+        <ColumnInfo Id="Client" Width="82" />
+        <ColumnInfo Id="FollowUp" Width="82" />
+        <ColumnInfo Id="Oid" Width="82" />
+        <ColumnInfo Id="TicketDescription" Width="82" />
+        <ColumnInfo Id="TicketNumber" Width="58" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="CreationDate" Width="82" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="ErrorOccurDate" Width="82" />
+        <ColumnInfo Id="ErrorIdentifiedDate" Width="82" />
+        <ColumnInfo Id="Priority" Width="82" />
+        <ColumnInfo Id="TicketSource" Width="82" />
+        <ColumnInfo Id="TicketState" Width="82" />
+        <ColumnInfo Id="TicketType" Width="82" />
+        <ColumnInfo Id="RaisedBy" Width="82" />
+        <ColumnInfo Id="AssignedTo" Width="82" />
+      </Columns>
+    </ListView>
     <DetailView Id="Priority_DetailView" AllowDelete="False" />
     <ListView Id="Priority_ListView" AllowDelete="False" />
     <ListView Id="Priority_Tickets_ListView" AllowDelete="False" AllowLink="False" AllowNew="False" />
+    <DetailView Id="Ticket_DetailView">
+      <Items>
+        <PropertyEditor Id="TicketNumber" Index="0" />
+        <PropertyEditor Id="Priority" Index="1" />
+        <PropertyEditor Id="CreationDate" Index="2" />
+        <PropertyEditor Id="ErrorIdentifiedDate" Index="3" />
+        <PropertyEditor Id="ErrorOccurDate" Index="4" />
+        <PropertyEditor Id="TicketSource" Index="5" />
+        <PropertyEditor Id="Client" Index="6" />
+        <PropertyEditor Id="TicketDescription" Index="7" Caption="Descripton of Issue" />
+        <PropertyEditor Id="TicketState" Index="8" />
+        <PropertyEditor Id="FollowUp" RowCount="4" Index="9" />
+        <PropertyEditor Id="TicketType" Index="10" />
+        <PropertyEditor Id="AssignedTo" Index="11" />
+        <PropertyEditor Id="RaisedBy" Index="12" />
+        <PropertyEditor Id="TicketResponses" Index="13" />
+        <PropertyEditor Id="Comments" Index="14" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="30.562659846547316">
+            <LayoutGroup Id="Ticket" RelativeSize="100">
+              <LayoutGroup Id="Ticket_col1" ShowCaption="False" Index="0" RelativeSize="52.107279693486589" IsNewNode="True" Removed="True">
+                <LayoutItem Id="TicketNumber" ViewItem="TicketNumber" Index="0" RelativeSize="18.367346938775512" IsNewNode="True" />
+                <LayoutItem Id="Priority" ViewItem="Priority" Index="1" RelativeSize="13.26530612244898" IsNewNode="True" />
+                <LayoutItem Id="CreationDate" ViewItem="CreationDate" Index="2" RelativeSize="13.26530612244898" IsNewNode="True" />
+                <LayoutItem Id="ErrorIdentifiedDate" ViewItem="ErrorIdentifiedDate" Index="3" RelativeSize="13.26530612244898" IsNewNode="True" />
+                <LayoutItem Id="ErrorOccurDate" ViewItem="ErrorOccurDate" Index="4" RelativeSize="13.26530612244898" IsNewNode="True" />
+                <LayoutItem Id="Item3" Index="5" RelativeSize="5.1020408163265305" IsNewNode="True" />
+                <LayoutItem Id="Item4" Index="6" RelativeSize="5.1020408163265305" IsNewNode="True" />
+                <LayoutItem Id="Client" ViewItem="Client" Index="7" RelativeSize="18.367346938775512" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Ticket_col2" RelativeSize="47.892720306513411">
+                <LayoutItem Id="TicketState" ViewItem="TicketState" Index="0" RelativeSize="18.367346938775512" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="TicketSource" ViewItem="TicketSource" Index="1" RelativeSize="13.26530612244898" IsNewNode="True" />
+                <LayoutItem Id="TicketType" ViewItem="TicketType" Index="2" RelativeSize="13.26530612244898" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="Client" ViewItem="Client" Index="3" RelativeSize="29.032258064516128" Removed="True" />
+                <LayoutItem Id="Item2" Index="3" RelativeSize="23.469387755102041" IsNewNode="True" />
+                <LayoutItem Id="RaisedBy" ViewItem="RaisedBy" Index="4" RelativeSize="13.26530612244898" IsNewNode="True" Removed="True" />
+                <LayoutItem Id="AssignedTo" ViewItem="AssignedTo" Index="5" RelativeSize="18.367346938775512" IsNewNode="True" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="45.78005115089514">
+            <LayoutGroup Id="Item1" ShowCaption="True" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutItem Id="TicketDescription" ViewItem="TicketDescription" Index="0" RelativeSize="40.378548895899051" IsNewNode="True" />
+              <LayoutItem Id="FollowUp" ViewItem="FollowUp" Index="1" RelativeSize="59.621451104100949" IsNewNode="True" />
+            </LayoutGroup>
+            <LayoutItem Id="FollowUp" Removed="True" />
+            <LayoutItem Id="TicketDescription" Removed="True" />
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="23.657289002557544">
+            <LayoutGroup Id="Comments" RelativeSize="100">
+              <LayoutItem Id="Comments" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="TicketResponses" RelativeSize="100">
+              <LayoutItem Id="TicketResponses" RelativeSize="100" />
+            </LayoutGroup>
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Ticket_ListView" AllowNew="True" AllowDelete="True" />
     <ListView Id="TicketSource_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
     <ListView Id="TicketState_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
     <ListView Id="TicketType_Tickets_ListView" AllowNew="False" AllowUnlink="False" AllowDelete="False" />
